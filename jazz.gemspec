@@ -49,7 +49,7 @@ Gem::Specification.new do |s|
     "templates/model.js",
     "templates/scaffold_controller.js"
   ]
-  s.homepage = "http://github.com/f.schade@purpled.de/jazz"
+  s.homepage = "https://github.com/purpled/jazz"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
