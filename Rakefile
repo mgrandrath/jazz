@@ -25,7 +25,7 @@ end
 
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "jazz"
+  gem.name = "jazz-jss"
   gem.version = "0.0.1"
   gem.executables = "jazz"
   gem.homepage = "https://github.com/purpled/jazz"
