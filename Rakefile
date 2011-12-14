@@ -28,7 +28,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "jazz"
   gem.version = "0.0.1"
   gem.executables = "jazz"
-  gem.homepage = "http://github.com/f.schade@purpled.de/jazz"
+  gem.homepage = "https://github.com/purpled/jazz"
   gem.license = "MIT"
   gem.summary = "A lightweight javascript MVC framework."
   gem.email = "f.schade@purpled.de"
