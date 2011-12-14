@@ -1,0 +1,11 @@
+require 'rubygems'
+require 'thor'
+require 'thor/group'
+require 'active_support/inflector'
+
+require 'jazz/app_detector'
+require 'jazz/app_generator'
+require 'jazz/cli'
+require 'jazz/controller_generator'
+require 'jazz/model_generator'
+require 'jazz/scaffold_generator'

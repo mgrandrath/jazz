@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'jazz'
+
+if(ARGV.include?('generate'))
+  Jazz::CLI.start
+else
+  Jazz::AppGenerator.start
+end
