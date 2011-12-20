@@ -5,9 +5,18 @@ Jazz.Model = function (attributes, options) {
 
 Jazz.Model._config = {}
 
-Jazz.Model.create = function (protoProps, classProps) {
-  this._config.table = protoProps._config.table;
-  var child = Jazz.Helper.inherits(this, protoProps, classProps);
+Jazz.Model.create = function (settings, model, object) {
+  _.extend(this._config, settings);
+  _.extend(this, model);
+  
+  obj = {};
+  obj._config = {}
+  _.extend(obj._config, settings);
+  _.extend(obj, object);
+  
+
+  
+  var child = Jazz.Helper.inherits(this, obj);
   child.extend = this.extend;
   return child;
 }
@@ -36,6 +45,8 @@ Jazz.Model.findBy = function (attributes) {
 Jazz.Model.prototype.initialize = function (attributes) {
   this.attributes = {};
   this.uid = _.uniqueId();
+
+
 
 
   //Prepopulate OBJ

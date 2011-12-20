@@ -1,9 +1,16 @@
 var <%= name.singularize.capitalize %> = Jazz.Model.create(
-  {
-    _config: {
-      
+
+    //configuration
+    {
       table: create_<%= name.downcase.pluralize %>
-      
-    }
-  }
+    },
+
+    //modelActions
+   	{
+   	},
+
+   	//objectActions
+   	{
+   	}
+
 );
