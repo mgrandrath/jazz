@@ -4,6 +4,7 @@ require 'jazz'
 
 if(ARGV.include?('generate'))
   Jazz::CLI.start
-else
+elsif(ARGV.include?('new'))
+  ARGV.delete('new')
   Jazz::AppGenerator.start
 end

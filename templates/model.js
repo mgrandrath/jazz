@@ -1,8 +1,8 @@
-var <%= name.capitalize %>Model = Jazz.Model.create(
+var <%= name.singularize.capitalize %> = Jazz.Model.create(
   {
     _config: {
       
-      table: '<%= name.pluralize %>'
+      table: create_<%= name.downcase.pluralize %>
       
     }
   }

@@ -16,7 +16,7 @@ _.extend(
     add:function (model) {
       obj = jQuery.extend(true, {}, model);
       obj._config.persist = true;
-      this.models[obj.uid()] = obj;
+      this.models[obj.uid] = obj;
     },
 
     all:function () {

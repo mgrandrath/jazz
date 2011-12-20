@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'json'
 require 'thor'
 require 'thor/group'
 require 'active_support/inflector'

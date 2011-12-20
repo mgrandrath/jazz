@@ -1,5 +1,6 @@
-var <%= name.capitalize.pluralize -%>Controller = Jazz.Controller.create(
+var <%= name.capitalize.pluralize %>Controller = Jazz.Controller.create(
   {
+  
     initialize: function(){},
     
     index: function(){},
@@ -8,11 +9,11 @@ var <%= name.capitalize.pluralize -%>Controller = Jazz.Controller.create(
     
     create: function(){},
     
-    edit: function(){},
+    update: function(){},
     
-    destroy: function(){},
+    destroy: function(){}
     
   }
 );
 
-<%= name.pluralize -%>_controller = new <%= name.capitalize.pluralize -%>Controller;
+<%= name.downcase.pluralize -%>_controller = new <%= name.capitalize.pluralize -%>Controller;

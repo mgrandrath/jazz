@@ -23,7 +23,7 @@ module Jazz
       directory 'dist/mustache', "#{new_app_path}/vendor/mustache"
       directory 'dist/require', "#{new_app_path}/vendor/require"
       directory 'dist/underscore', "#{new_app_path}/vendor/underscore"
-      
+
       template "templates/application.js", "#{new_app_path}/config/application.js"
       template "templates/index.html", "#{new_app_path}/index.html"
       

@@ -16,8 +16,15 @@ module Jazz
     end
   
     def build_the_controller
-      template "templates/controller.js", "#{app_path}/app/controllers/#{name.downcase}_controller.js"
-      empty_directory "#{app_path}/app/views/#{name.downcase}"
+      generate_controller
+    end
+    
+    def build_the_views
+      generate_views
+    end
+    
+    def build_the_glue
+      generate_glue
     end
   
     def farewell

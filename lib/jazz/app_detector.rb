@@ -36,6 +36,32 @@ module Jazz
       File.exists?('public')
     end
     
+    def generate_controller
+      template "templates/controller.js", "#{app_path}/app/controllers/#{name.downcase.pluralize}_controller.js"
+    end
+    
+    def generate_model
+      template "templates/model.js", "#{app_path}/app/models/#{name.downcase}.js"
+    end
+    
+    def generate_db
+      template "templates/db.js", "#{app_path}/db/create_#{name.downcase.pluralize}.js"
+    end
+    
+    def generate_views
+      empty_directory "#{app_path}/app/views/#{name.downcase.pluralize}"
+      template "templates/view_create.html", "#{app_path}/app/views/#{name.downcase.pluralize}/create.html"
+      template "templates/view_index.html", "#{app_path}/app/views/#{name.downcase.pluralize}/index.html"
+      template "templates/view_show.html", "#{app_path}/app/views/#{name.downcase.pluralize}/show.html"
+      template "templates/view_update.html", "#{app_path}/app/views/#{name.downcase.pluralize}/update.html"
+    end
+    
+    def generate_glue
+      @files = Dir.glob('db/*') + Dir.glob('app/models/*') + Dir.glob('app/controllers/*')
+		  puts @files
+      template "templates/glue.js", "#{app_path}/config/glue.js", {:force => true}
+    end
+    
   end
   
 end

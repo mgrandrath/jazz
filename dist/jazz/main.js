@@ -1,6 +1,7 @@
 var Jazz = {
   _:{
-    requires:[
+    _app: "",
+    _files: [
       'vendor/jquery/jquery.js',
       'vendor/hashchange/jquery.ba-hashchange.js',
       'vendor/mustache/mustache.js',
@@ -12,65 +13,53 @@ var Jazz = {
       'lib/jazz/lib/view.js',
       'lib/jazz/lib/controller.js',
       'config/application.js',
-      'config/routes.js',
-      'config/glue.js'
+      'config/glue.js',
+      'config/routes.js'
     ]
   },
-  Helper:{
-    addOrderToRequires:function (collection, path) {
-      path = path ? path : '';
-      //Load order is importent so add it by default
-      for (file in collection) {
-        collection[file] = collection[file] != "" ? 'vendor/require/order!' + path + collection[file] : "";
-      }
-      return collection;
-    }
-  },
-  Now:{},
-  Config:{}
-}
-
-
-require(
-  {
-    baseUrl:""
-  },
-  Jazz.Helper.addOrderToRequires(Jazz._.requires),
-  function () {
-    _.extend(
-      Jazz.Helper.getApp(),
-      {
-        _:{
-          requires:[]
-        }
-      }
-    );
-
-    _.each(
-      Glue,
-      function (val, key) {
-        var path;
-        switch (key) {
-          case "Db":
-            path = "db/"
-            break;
-          default:
-            path = "app/" + key + '/'
-            break;
-        }
-
-        Jazz.Helper.getApp()._.requires.push(Jazz.Helper.addOrderToRequires(val, path));
-      }
-    );
-
-    Jazz.Helper.getApp()._.requires = _.flatten(Jazz.Helper.getApp()._.requires);
-
-    require(
-      Jazz.Helper.getApp()._.requires,
-      function () {
-        eval(Jazz.Config.appName + '.initialize()');
+  
+  Helper: function(){},
+  Now: {},
+  initialize: function(){
+    this.load(
+      glue,
+      function(){
+        window[Jazz._._app].initialize();
         Jazz.Route.initialize();
       }
     );
+  },
+  
+  load: function(path, callback){
+    
+    if (!path) return this;
+    
+    files = [];
+    
+    if (typeof path == "string")
+      files.push(path);
+    else
+      files = path;
+    
+    for (file in files) {
+      files[file] = 'vendor/require/order!' + files[file];
+    }
+    
+    require(
+      {
+        baseUrl:""
+      },
+      files,
+      callback
+    );    
+  },
+  
+  setup: function(name){
+    //Set Appname
+    this._._app = name;
   }
-);
+}
+
+Jazz.load(Jazz._._files, function(){
+  Jazz.initialize();
+});

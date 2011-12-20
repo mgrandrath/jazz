@@ -16,8 +16,8 @@ module Jazz
     end
   
     def build_the_model
-      template "templates/model.js", "#{app_path}/app/models/#{name.downcase}.js"
-      template "templates/db.js", "#{app_path}/db/create_#{name.downcase.pluralize}.js"
+      generate_model
+      generate_db
     end
   
     def farewell

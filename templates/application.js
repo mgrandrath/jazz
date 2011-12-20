@@ -1,4 +1,6 @@
-Jazz.Config.appName = '<%= name %>';
+Jazz.setup('<%= name %>');
+
 <%= name %> = {
-  initialize: function(){}
+  initialize: function(){
+  }
 }

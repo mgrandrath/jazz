@@ -1,5 +1,6 @@
 Jazz.Route = { 
   routes: {},
+  
   initialize: function(){
     Jazz.Route.navigate();
     $(window).hashchange(

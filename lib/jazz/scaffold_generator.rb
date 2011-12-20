@@ -21,19 +21,21 @@ module Jazz
     end
   
     def build_the_model
-      template "templates/model.js", "#{app_path}/app/models/#{name.downcase}.js"
-      template "templates/db.js", "#{app_path}/db/create_#{name.downcase.pluralize}.js"
+      generate_model
+      generate_db
     end
     
     def build_the_controller
-      template "templates/scaffold_controller.js", "#{app_path}/app/controllers/#{name.downcase.pluralize}_controller.js"
+      generate_controller
     end
     
-#    def build_the_views
-#      template "templates/scaffold_index.html", "#{public_path}/#{name.downcase.pluralize}.html"
-#      template "templates/scaffold_partial.html.mustache", "#{app_path}/app/views/#{name.downcase.pluralize}/_#{name.downcase}.html.mustache"
-#      template "templates/scaffold_edit.html.mustache", "#{app_path}/app/views/#{name.downcase.pluralize}/edit.html.mustache"
-#    end
+    def build_the_views
+      generate_views
+    end
+    
+    def build_the_glue
+      generate_glue
+    end
   
     def farewell
       $stdout.puts "Your scaffold is ready to rumble!"

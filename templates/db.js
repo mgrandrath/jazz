@@ -11,4 +11,4 @@ var Create<%= name.capitalize.pluralize %> = Jazz.Db.create(
   }
 );
 
-<%= name.pluralize %> = new Create<%= name.capitalize.pluralize %>;
+create_<%= name.downcase.pluralize %> = new Create<%= name.capitalize.pluralize %>;

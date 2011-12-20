@@ -1,6 +1,6 @@
 module Jazz
   class CLI < Thor
-    
+
     desc "Jazz generate [generator] [name]", "call a generator"
     def generate(requested_generator, name, *args)
       ARGV.delete('generate')

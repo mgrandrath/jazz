@@ -1,4 +1,4 @@
-var <%= name.capitalize %>Controller = Jazz.Controller.create(
+var <%= name.capitalize.pluralize %>Controller = Jazz.Controller.create(
   {
   
     initialize: function(){},
@@ -16,4 +16,4 @@ var <%= name.capitalize %>Controller = Jazz.Controller.create(
   }
 );
 
-<%= name %>_controller = new <%= name.capitalize %>Controller;
+<%= name.downcase.pluralize -%>_controller = new <%= name.capitalize.pluralize -%>Controller;
