@@ -1,1 +1,1 @@
-Jazz.View = {}
+Jazz.View = {};

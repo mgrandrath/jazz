@@ -1,3 +1,5 @@
+Jazz.Helper = function(){};
+
 _.extend(
   Jazz.Helper,
   {
@@ -34,4 +36,3 @@ _.extend(
 	  }
   }
 );
-

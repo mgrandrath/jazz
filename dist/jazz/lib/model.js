@@ -2,7 +2,6 @@ Jazz.Model = function (attributes, options) {
   this.initialize(attributes);
 };
 
-
 Jazz.Model._config = {}
 
 Jazz.Model.create = function (settings, model, object) {
@@ -14,12 +13,20 @@ Jazz.Model.create = function (settings, model, object) {
   _.extend(obj._config, settings);
   _.extend(obj, object);
   
-
-  
   var child = Jazz.Helper.inherits(this, obj);
+  
   child.extend = this.extend;
+  
   return child;
 }
+
+
+
+
+
+
+
+
 
 Jazz.Model.findBy = function (attributes) {
   var objs = [];

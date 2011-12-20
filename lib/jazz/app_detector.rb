@@ -48,6 +48,10 @@ module Jazz
       template "templates/db.js", "#{app_path}/db/create_#{name.downcase.pluralize}.js"
     end
     
+    def generate_helper
+      template "templates/helper.js", "#{app_path}/app/helpers/#{name.downcase.pluralize}_helper.js"
+    end
+    
     def generate_views
       empty_directory "#{app_path}/app/views/#{name.downcase.pluralize}"
       template "templates/view_create.html", "#{app_path}/app/views/#{name.downcase.pluralize}/create.html"
@@ -57,9 +61,9 @@ module Jazz
     end
     
     def generate_glue
-      @files = Dir.glob('db/*') + Dir.glob('app/models/*') + Dir.glob('app/controllers/*')
+      @files = Dir.glob('db/*') + Dir.glob('app/models/*') + Dir.glob('app/helpers/*') + Dir.glob('app/controllers/*')
 		  puts @files
-      template "templates/glue.js", "#{app_path}/config/glue.js", {:force => true}
+      template "templates/boot.js", "#{app_path}/config/boot.js", {:force => true}
     end
     
   end

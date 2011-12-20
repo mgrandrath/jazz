@@ -20,13 +20,19 @@ module Jazz
       directory 'dist/jazz', "#{new_app_path}/lib/jazz"
       directory 'dist/hashchange', "#{new_app_path}/vendor/hashchange"
       directory 'dist/jquery', "#{new_app_path}/vendor/jquery"
-      directory 'dist/mustache', "#{new_app_path}/vendor/mustache"
+      directory 'dist/handlebars', "#{new_app_path}/vendor/handlebars"
       directory 'dist/require', "#{new_app_path}/vendor/require"
       directory 'dist/underscore', "#{new_app_path}/vendor/underscore"
 
       template "templates/application.js", "#{new_app_path}/config/application.js"
       template "templates/index.html", "#{new_app_path}/index.html"
       
+    end
+    
+    def build_the_glue
+      @files = Dir.glob('db/*') + Dir.glob('app/models/*') + Dir.glob('app/helpers/*') + Dir.glob('app/controllers/*')
+		  puts @files
+      template "templates/boot.js", "#{new_app_path}/config/boot.js", {:force => true}
     end
   
     def farewell      

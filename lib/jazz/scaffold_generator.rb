@@ -33,6 +33,10 @@ module Jazz
       generate_views
     end
     
+    def build_the_helper
+      generate_helper
+    end
+
     def build_the_glue
       generate_glue
     end
