@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "jazz-jss"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Florian Schade"]
-  s.date = "2011-12-14"
+  s.date = "2011-12-20"
   s.email = "f.schade@purpled.de"
   s.executables = ["jazz"]
   s.extra_rdoc_files = [
@@ -40,14 +40,18 @@ Gem::Specification.new do |s|
     "lib/jazz/scaffold_generator.rb",
     "templates/app_root/app/assets/javascripts/application.js",
     "templates/app_root/app/assets/stylesheets/application.css",
-    "templates/app_root/config/glue.js",
     "templates/app_root/config/routes.js",
     "templates/application.js",
     "templates/controller.js",
     "templates/db.js",
+    "templates/glue.js",
     "templates/index.html",
     "templates/model.js",
-    "templates/scaffold_controller.js"
+    "templates/scaffold_controller.js",
+    "templates/view_create.html",
+    "templates/view_index.html",
+    "templates/view_show.html",
+    "templates/view_update.html"
   ]
   s.homepage = "https://github.com/purpled/jazz"
   s.licenses = ["MIT"]
