@@ -17,22 +17,22 @@ module Jazz
     
     def build_the_app
       directory "templates/app_root", new_app_path
-      directory 'dist/jazz', "#{new_app_path}/lib/jazz"
-      directory 'dist/hashchange', "#{new_app_path}/vendor/hashchange"
-      directory 'dist/jquery', "#{new_app_path}/vendor/jquery"
-      directory 'dist/handlebars', "#{new_app_path}/vendor/handlebars"
-      directory 'dist/require', "#{new_app_path}/vendor/require"
-      directory 'dist/underscore', "#{new_app_path}/vendor/underscore"
+      directory 'dist/jazz', "#{new_app_path}/development/lib/jazz"
+      directory 'dist/hashchange', "#{new_app_path}/development/vendor/hashchange"
+      directory 'dist/jquery', "#{new_app_path}/development/vendor/jquery"
+      directory 'dist/handlebars', "#{new_app_path}/development/vendor/handlebars"
+      directory 'dist/require', "#{new_app_path}/development/vendor/require"
+      directory 'dist/underscore', "#{new_app_path}/development/vendor/underscore"
 
-      template "templates/application.js", "#{new_app_path}/config/application.js"
-      template "templates/index.html", "#{new_app_path}/index.html"
+      template "templates/application.js", "#{new_app_path}/development/config/application.js"
+      template "templates/index.html", "#{new_app_path}/development/index.html"
       
     end
     
     def build_the_glue
-      @files = Dir.glob('db/*') + Dir.glob('app/models/*') + Dir.glob('app/helpers/*') + Dir.glob('app/controllers/*')
+      @files = Dir.glob('development/db/*') + Dir.glob('development/app/models/*') + Dir.glob('development/app/helpers/*') + Dir.glob('development/app/controllers/*')
 		  puts @files
-      template "templates/boot.js", "#{new_app_path}/config/boot.js", {:force => true}
+      template "templates/boot.js", "#{new_app_path}/development/config/boot.js", {:force => true}
     end
   
     def farewell      

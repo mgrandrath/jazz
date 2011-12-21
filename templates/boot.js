@@ -19,47 +19,24 @@ require.config(
   }
 );
 
-var JazzApplication = {}
-
-JazzApplication.loadBase = function(){
-  require(
-    [
-      'order!jquery/jquery',
-      'order!underscore/underscore',
-      'order!handlebars/handlebars',
-      'order!haschange/hashchange',
-
-      'order!jazz/module',
-    ],
-    function(){
-      JazzApplication.loadGlue();
-    }
-  )
-}
-
-JazzApplication.loadGlue = function(){
-  require(
-    [
-      'order!config/glue'
-    ],
-    function(){
-      JazzApplication.loadApplication();
-    }
-  );
-}
-
-JazzApplication.loadApplication = function(){
-  require(
-    [
-      'order!config/routes',
-      <% @files.each_with_index do |file, index| %>'order!<%= file %>',
-      <% end %>
-      'order!config/application.js'
-    ],
-    function(){
-      JazzApplication.runApplication();
-    }
-  );
-}
-
-JazzApplication.loadBase();
+require(
+  [
+    'order!config/glue'
+  ],
+  function(){
+    require(
+      [
+        'order!jazz/module',
+      ],
+      function(){
+        require(
+          [
+            'order!config/routes',
+            <% @files.each_with_index do |file, index| %>'order!<%= file %>',
+            <% end %>'order!config/application.js'
+          ]
+        );
+      }
+    )
+  }
+);

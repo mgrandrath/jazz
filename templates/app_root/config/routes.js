@@ -1,4 +1,0 @@
-Jazz.Route.draw(
-  {
-  }
-);

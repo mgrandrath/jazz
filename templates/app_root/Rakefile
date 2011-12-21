@@ -1,0 +1,11 @@
+# encoding: utf-8
+
+require 'rake'
+require 'rubygems'
+
+namespace :build do
+desc "Build compressed release (osx)"
+  task :osx do    
+    system('java -classpath scripts/r.js/lib/rhino/js.jar:scripts/r.js/lib/closure/compiler.jar org.mozilla.javascript.tools.shell.Main scripts/r.js/dist/r.js -o scripts/build.js')
+  end
+end

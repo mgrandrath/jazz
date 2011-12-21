@@ -1,8 +1,7 @@
-JazzApplication.runApplication = function(){
-  Jazz.Route.initialize();
-  <%= name %>.initialize();
-};
-
 var <%= name %> = {}
 
-<%= name %>.initialize = function(){}
+<%= name %>.initialize = function(){
+  Jazz.Route.initialize();
+}
+
+<%= name %>.initialize();
