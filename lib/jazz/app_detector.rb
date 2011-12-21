@@ -62,7 +62,6 @@ module Jazz
     
     def generate_glue
       @files = Dir.glob('db/*') + Dir.glob('app/models/*') + Dir.glob('app/helpers/*') + Dir.glob('app/controllers/*')
-		  puts @files
       template "templates/boot.js", "#{app_path}/config/boot.js", {:force => true}
     end
     

@@ -1,5 +1,5 @@
 Jazz.Route.draw(
   {
-    '': 'application_controller#welcome'
+    '': 'application_controller#welcomeToJazz'
   }
 );

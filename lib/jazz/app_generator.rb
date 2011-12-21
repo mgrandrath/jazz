@@ -27,12 +27,10 @@ module Jazz
       template "templates/application.js", "#{new_app_path}/development/config/application.js"
       template "templates/index.html", "#{new_app_path}/development/index.html"
       
-    end
-    
-    def build_the_glue
-      @files = Dir.glob('development/db/*') + Dir.glob('development/app/models/*') + Dir.glob('development/app/helpers/*') + Dir.glob('development/app/controllers/*')
-		  puts @files
+      @files = ['app/helpers/application_helper.js', 'app/controllers/application_controller.js']
+      
       template "templates/boot.js", "#{new_app_path}/development/config/boot.js", {:force => true}
+      
     end
   
     def farewell      
