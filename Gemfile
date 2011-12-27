@@ -2,6 +2,9 @@ source "http://rubygems.org"
 
 gem 'thor'
 gem 'activesupport'
+gem 'rack'
+gem 'sprockets'
+gem 'json'
 
 group :development do
   gem "shoulda", ">= 0"

@@ -1,4 +1,4 @@
-{{#<%= name.downcase.singularize -%>.attributes}}
+{{#attributes}}
   <% attributes.each_with_index do |(key, value), index| %>
   <div>
     <label><%= key %>:</label>
@@ -9,4 +9,4 @@
     <input type="hidden" name="uid" value="{{uid}}">
     <input type="submit" name="submit" value="Submit">
   </div>
-{{/<%= name.downcase.singularize -%>.attributes}}
+{{/attributes}}

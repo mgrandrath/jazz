@@ -1,10 +1,10 @@
 <% attributes.each_with_index do |(key, value), index| %>
 <p>
   <b><%= key %>:</b>
-  {{<%= name.downcase.singularize %>.<%= key %>}}
+  {{<%= key %>}}
 </p>
 <% end %>
 
-<a href="#/<%= name.downcase.pluralize %>/{{<%= name.downcase.singularize %>.uid}}/edit">Edit</a> | 
+<a href="#/<%= name.downcase.pluralize %>/{{uid}}/edit">Edit</a> | 
 <a href="#/<%= name.downcase.pluralize %>">Back</a>
 

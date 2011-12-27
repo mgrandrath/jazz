@@ -1,5 +1,5 @@
 jazz jss
-=======
+========
 
 It's a simple rapid prototyping JSS framework
 
@@ -12,32 +12,57 @@ Usage
 -----
 
 in shell
-    jazz new todo
-    cd todo
-    jazz generate scaffold item title state
+    jazz new example
+    cd example
+    jazz generate scaffold user firstName:string lastName:string age:integer
 
 add route to config/routes.js
     Jazz.Route.draw(
       {
-        '':       'items_controller#index',
-        '/items': 'items_controller#index'
+        ''                     : 'users_controller#index',
+        '/'                    : 'users_controller#index',
+        '/users'               : 'users_controller#index',
+        '/users/:user_id'      : 'users_controller#show',
+        '/users/:user_id/edit' : 'users_controller#edit',
+        '/users/make'          : 'users_controller#make'
       }
     );
 
-open app/controllers/items_controller.js and add this to index action
-    milk = new Item({title: 'milk', state: false});
-    milk.save();
+open db/create/create_users.js and add default values
+    var CreateUser = Jazz.Db.create(
+      {
+        columns: {
+          firstName: {
+            value: 'firstname',
+            type: 'string'
+          },	
+          lastName: {
+            value: 'lastname',
+            type: 'string'
+          },
+          age: {
+            value: '23',
+            type: 'integer'
+          }
+        }
+      }
+    );
 
-    bread = new Item({title: 'bread', state: false});
-    bread.save();
-
-    open_cart = Item.findBy({state: false});
-    console.log(open_cart);
-
-    bread.set({state: true});
-    bread.save();
-    open_cart = Item.findBy({state: false});
-    console.log(open_cart);
+    create_users = new CreateUser;
+    
+open db/fixtures/users.js and uncomment
+    _.times(
+      10,
+      function(){
+        new User({}).save();
+      }
+    );
+    
+in shell type
+    jazz server
+    
+openup your browser and navigate to
+    http://127.0.0.1:9292/index.html
 
 Todo
 ----
