@@ -1,5 +1,7 @@
 <h1>New <%= name.downcase.pluralize -%></h1>
 
-{{><%= name.downcase.pluralize -%>_form}}
+<form data-object="<%= name.downcase.singularize %>" action="#/<%= name.downcase.pluralize %>/create">
+{{><%= name.downcase.pluralize %>_form}}
+</form>
 
 <a href="#/<%= name.downcase.pluralize -%>">Back</a>

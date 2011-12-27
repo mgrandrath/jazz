@@ -1,6 +1,8 @@
 <h1>Editing <%= name.downcase.singularize %></h1>
 
+<form data-object="<%= name.downcase.singularize %>" action="#/<%= name.downcase.pluralize %>/update">
 {{><%= name.downcase.pluralize %>_form}}
+</form>
 
 <a href="#/<%= name.downcase.pluralize %>/{{uid}}/edit">Edit</a> | 
 <a href="#/<%= name.downcase.pluralize %>">Back</a>

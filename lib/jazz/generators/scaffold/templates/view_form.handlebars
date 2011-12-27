@@ -1,12 +1,9 @@
-{{#attributes}}
-  <% attributes.each_with_index do |(key, value), index| %>
+<% attributes.each_with_index do |(key, value), index| %>
   <div>
     <label><%= key %>:</label>
     <input type="text" name="<%= key %>" value="{{<%= key %>}}">
   </div>
-  <% end %>
-  <div>
-    <input type="hidden" name="uid" value="{{uid}}">
-    <input type="submit" name="submit" value="Submit">
-  </div>
-{{/attributes}}
+<% end %>
+<div>
+  <input type="submit" name="submit" value="Submit">
+</div>
