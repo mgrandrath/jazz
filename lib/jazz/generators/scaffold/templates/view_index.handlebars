@@ -1,0 +1,27 @@
+<h1>Listing <%= name.downcase.pluralize -%></h1>
+
+<table>
+  <tr>
+    <% attributes.each_with_index do |(key, value), index| %>
+    <th><%= key %></th>    
+    <% end %>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+{{#<%= name.downcase.pluralize -%>}}
+  <tr>
+    <% attributes.each_with_index do |(key, value), index| %>
+    <td>{{<%= key %>}}</td>
+    <% end %>
+    <td><a href="#/<%= name.downcase.pluralize -%>/{{uid}}">Show</a></td>
+    <td><a href="#/<%= name.downcase.pluralize -%>/{{uid}}/edit">Edit</a></td>
+    <td><a href="#/<%= name.downcase.pluralize -%>/{{uid}}/destroy">destroy</a></td>
+  </tr>
+{{/<%= name.downcase.pluralize -%>}}
+</table>
+
+<br />
+
+<td><a href="#/<%= name.downcase.pluralize -%>/make">New</a></td>

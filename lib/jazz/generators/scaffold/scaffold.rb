@@ -34,11 +34,11 @@ module Jazz
       end
       
       def create_views
-        template  "templates/view_form.handlebars", "app/views/#{name.pluralize.downcase}/_form.hamlbars"
-        template  "templates/view_edit.handlebars", "app/views/#{name.pluralize.downcase}/edit.hamlbars"
-        template  "templates/view_index.handlebars", "app/views/#{name.pluralize.downcase}/index.hamlbars"
-        template  "templates/view_new.handlebars", "app/views/#{name.pluralize.downcase}/new.hamlbars"
-        template  "templates/view_show.handlebars", "app/views/#{name.pluralize.downcase}/show.hamlbars"
+        template  "templates/view_form.handlebars", "app/views/#{name.pluralize.downcase}/_form.handlebars"
+        template  "templates/view_edit.handlebars", "app/views/#{name.pluralize.downcase}/edit.handlebars"
+        template  "templates/view_index.handlebars", "app/views/#{name.pluralize.downcase}/index.handlebars"
+        template  "templates/view_new.handlebars", "app/views/#{name.pluralize.downcase}/new.handlebars"
+        template  "templates/view_show.handlebars", "app/views/#{name.pluralize.downcase}/show.handlebars"
       end
       
       def convert_attributes
