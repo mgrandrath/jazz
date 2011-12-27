@@ -1,10 +1,22 @@
 #!/usr/bin/env ruby
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
-require 'jazz'
 
-if(ARGV.include?('generate'))
-  Jazz::CLI.start
-elsif(ARGV.include?('new'))
-  ARGV.delete('new')
-  Jazz::AppGenerator.start
-end
+require 'rubygems'
+require 'json'
+require 'thor'
+require 'thor/group'
+require 'active_support/inflector'
+
+
+require 'jazz/generators/project/project'
+require 'jazz/generators/controller/controller'
+require 'jazz/generators/model/model'
+require 'jazz/generators/scenario/scenario'
+require 'jazz/generators/helper/helper'
+require 'jazz/generators/scaffold/scaffold'
+
+require 'jazz/cli'
+
+
+
+Jazz::Generators::Cli.start
