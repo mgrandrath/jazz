@@ -14,7 +14,7 @@ module Jazz
   		####################################################################################
   		####################################################################################
             
-      desc "new [NAME]", "Generates new Jazz application…"
+      desc "new [NAME]", "Generates new Jazz application"
       def new name=nil
         unless name
           say "Please provide a Jazz Application name"
